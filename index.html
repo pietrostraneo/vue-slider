@@ -14,27 +14,29 @@
     <div id="app">
 
         <div class="container">
-            <div class="slider-wrapper" tabindex="0">
-
-                <div class="item">
-                    <img :src="slides[activeImg].image" alt="Spiderman" @mouseover="pauseScroll()" @mouseleave="autoscroll()"/>
-                    <div class="text">
-                        <h3>{{ slides[activeImg].title }}</h3>
-                        <p>
-                            {{ slides[activeImg].text }}
-                        </p>
-                    </div>
+            <div class="item">
+                <img :src="slides[activeImg].image" alt="Spiderman" @mouseover="pauseScroll()" @mouseleave="autoscroll()"/>
+                <div class="text">
+                    <h3>{{ slides[activeImg].title }}</h3>
+                    <p>
+                        {{ slides[activeImg].text }}
+                    </p>
                 </div>
-
-                <div class="thumbs">
-                    <div class="prev" @click="prevImg()"></div>
-                    <div class="next" @click="nextImg()"></div>
-                    <div class="thumb" :class="highlight(index)" v-for="images, index in slides" :key="index" @click="clickShow(index)">
-                        <img :src="slides[index].image" alt="Spiderman"/>
-                    </div>
-                </div>
-
             </div>
+
+            <div class="thumbs">
+                <div class="prev" @click="prevImg()"></div>
+                <div class="next" @click="nextImg()"></div>
+                <div class="thumb" :class="highlight(index)" v-for="image, index in slides" :key="index" @click="clickShow(index)">
+                    <img :src="image.image" alt="image.title"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll">
+            <button @click="autoscroll()">Start scroll</button>
+            <button @click="pauseScroll()">Pause scroll</button>
+            <button @click="stopScroll()">Stop scroll</button>
         </div>
 
     </div>

@@ -37,6 +37,7 @@
     height: 300px;
     background: #000;
     position: relative;
+    width: calc(100% / 5);
 }
 
 .thumb {
@@ -47,7 +48,7 @@
 .thumb img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: auto;
 }
 
 .thumb.active {
